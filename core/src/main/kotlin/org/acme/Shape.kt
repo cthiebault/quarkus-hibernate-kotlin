@@ -1,10 +1,9 @@
 package org.acme
 
-import jakarta.persistence.*
-import org.hibernate.annotations.JdbcTypeCode
-import org.hibernate.type.SqlTypes
+import org.hibernate.annotations.Type
 import org.hibernate.validator.constraints.Length
 import java.util.*
+import javax.persistence.*
 
 @Entity
 @Table(name = "shape")
@@ -12,7 +11,7 @@ import java.util.*
 abstract class Shape(
 
   @Id
-  @JdbcTypeCode(SqlTypes.VARCHAR)
+  @Type(type = "uuid-char")
   @Column(name = "id", updatable = false, nullable = false, unique = true)
   open val id: UUID,
 

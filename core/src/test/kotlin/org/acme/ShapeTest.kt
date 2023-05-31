@@ -2,8 +2,8 @@ package org.acme
 
 import io.quarkus.logging.Log
 import io.quarkus.test.junit.QuarkusTest
-import jakarta.inject.Inject
-import jakarta.transaction.Transactional
+import javax.inject.Inject
+import javax.transaction.Transactional
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
