@@ -11,5 +11,5 @@ pluginManagement {
   }
 }
 
-rootProject.name = "code-with-quarkus"
+rootProject.name = "quarkus-hibernate-kotlin"
 include("core")
