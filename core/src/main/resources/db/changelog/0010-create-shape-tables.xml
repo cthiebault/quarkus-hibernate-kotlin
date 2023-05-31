@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet author="cthiebault" id="0010">
+
+    <createTable tableName="shape">
+      <column name="id" type="VARCHAR(36)">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="name" type="VARCHAR(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="color" type="VARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="foo" type="VARCHAR(50)"/>
+      <column name="bar" type="VARCHAR(50)"/>
+    </createTable>
+
+    <createTable tableName="rectangle">
+      <column name="shape_id" type="VARCHAR(36)">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+    </createTable>
+
+    <addForeignKeyConstraint
+        baseTableName="rectangle" baseColumnNames="shape_id"
+        referencedTableName="shape" referencedColumnNames="id"
+        constraintName="fk_rectangle_shape_id"
+        deferrable="false"
+        initiallyDeferred="false"
+        onDelete="RESTRICT"
+        onUpdate="RESTRICT"/>
+
+  </changeSet>
+
+</databaseChangeLog>
