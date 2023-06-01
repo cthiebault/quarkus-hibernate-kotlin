@@ -1,5 +1,7 @@
 # Quarkus 3 / Hibernate inheritance / Kotlin 
 
+https://github.com/quarkusio/quarkus/issues/33740
+
 Sample project to prove that Quarkus 3.0.4.Final does not support Hibernate inheritance with Kotlin.
 
 Quarkus 2.16.7.Final works fine:

@@ -1,6 +1,7 @@
 package org.acme
 
 import jakarta.persistence.*
+import jakarta.persistence.AccessType.PROPERTY
 import org.hibernate.annotations.JdbcTypeCode
 import org.hibernate.type.SqlTypes
 import org.hibernate.validator.constraints.Length
@@ -18,13 +19,16 @@ abstract class Shape(
 
   @Length(max = 100)
   @Column(name = "name", nullable = false, length = 100)
+  @Access(PROPERTY)
   open var name: String,
 
   @Enumerated(EnumType.STRING)
   @Column(name = "color", nullable = false, length = 50)
+  @Access(PROPERTY)
   open var color: Color,
 
   @Embedded
+  @Access(PROPERTY)
   var properties: Properties?,
 
   ) {
