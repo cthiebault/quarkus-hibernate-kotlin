@@ -29,7 +29,7 @@ abstract class Shape(
 
   @Embedded
   @Access(PROPERTY)
-  var properties: Properties?,
+  open var properties: Properties?,
 
   ) {
 

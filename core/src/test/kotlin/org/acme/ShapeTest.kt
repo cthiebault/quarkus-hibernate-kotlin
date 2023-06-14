@@ -36,10 +36,24 @@ class ShapeTest {
 
     repository.persist(rectangle)
 
+    repository.flush()
+
     val found = repository.findById(rectangle.id)
     Log.info("found: $found")
-
     assertEquals(rectangle, found)
+
+    val all = repository.findAll().list()
+    Log.info("all: $found")
+    assertEquals(1, all.size)
+    assertEquals(rectangle, all.first())
+
     assertEquals(1, repository.count())
+  }
+
+  private fun assertEquals(expected: Shape, actual: Shape) {
+    assertEquals(expected.id, actual.id)
+    assertEquals(expected.name, actual.name)
+    assertEquals(expected.color, actual.color)
+    assertEquals(expected.properties, actual.properties)
   }
 }
